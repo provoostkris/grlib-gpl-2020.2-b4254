@@ -25,7 +25,7 @@ DEVICE=$(PART)-$(PACKAGE)$(SPEED)
 BOARD=terasic-de10-nano
 include $(GRLIB)/boards/$(BOARD)/Makefile.inc
 QSF=$(GRLIB)/boards/$(BOARD)/$(TOP).qsf
-SDCFILE=$(BOARD).sdc
+SDCFILE=$(GRLIB)/boards/$(BOARD)/$(TOP).sdc
 EFFORT=high
 
 VHDLSYNFILES=config.vhd ahbrom.vhd leon3mp.vhd

@@ -1,10 +1,11 @@
------------------------------------------------------------------------------
--- LEON3 Demonstration design test bench configuration
--- Copyright (C) 2009 Aeroflex Gaisler
--- 2019 : Provoost Kris : Added cyclone 5 tech support
-------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+#--  Configuration package for LEON-3 <> Terrasic DE10 nano Cyclone 5 design
+#--  rev. 1.0 : 2020 Provoost Kris
+#------------------------------------------------------------------------------
+
 library techmap;
 use techmap.gencomp.all;
+
 package config is
 -- Technology and synthesis options
   constant CFG_FABTECH : integer := cyclone5;
