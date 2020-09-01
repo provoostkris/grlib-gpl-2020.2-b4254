@@ -1,7 +1,7 @@
-#------------------------------------------------------------------------------
-#--  Configuration package for LEON-3 <> Terrasic DE10 nano Cyclone 5 design
-#--  rev. 1.0 : 2020 Provoost Kris
-#------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+--  Configuration package for LEON-3 <> Terrasic DE10 nano Cyclone 5 design
+--  rev. 1.0 : 2020 Provoost Kris
+------------------------------------------------------------------------------
 
 library techmap;
 use techmap.gencomp.all;

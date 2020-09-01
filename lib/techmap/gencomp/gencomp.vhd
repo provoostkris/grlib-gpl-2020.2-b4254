@@ -38,7 +38,7 @@ package gencomp is
 
 -- technologies and libraries
 
-constant NTECH : integer := 64;
+constant NTECH : integer := 65;
 type tech_ability_type is array (0 to NTECH) of integer;
 
 constant inferred    : integer := 0;
@@ -107,6 +107,7 @@ constant polarfire   : integer := 61;
 constant nx          : integer := 62;
 constant dare65t     : integer := 63;
 constant gf22        : integer := 64;
+constant cyclone5    : integer := 65;
 
 
 constant DEFMEMTECH  : integer := inferred;
@@ -116,9 +117,9 @@ constant DEFFABTECH  : integer := inferred;
 constant is_fpga : tech_ability_type :=
 	(inferred => 1, virtex => 1, virtex2 => 1, axcel => 1,
 	 proasic => 1, altera => 1, apa3 => 1, spartan3 => 1,
-         virtex4 => 1, lattice => 1, spartan3e => 1, virtex5 => 1,
+   virtex4 => 1, lattice => 1, spartan3e => 1, virtex5 => 1,
 	 stratix1 => 1, stratix2 => 1, eclipse => 1,
-	 stratix3 => 1, cyclone3 => 1, axdsp => 1,
+	 stratix3 => 1, cyclone3 => 1, cyclone5 => 1, axdsp => 1,
 	 spartan6 => 1, virtex6 => 1, actfus => 1,
 	 stratix4 => 1, apa3e => 1, apa3l => 1, virtex7 => 1, kintex7 => 1,
 	 artix7 => 1, zynq7000 => 1, igloo2 => 1, rtg4 => 1,
@@ -218,7 +219,7 @@ constant has_dpram : tech_ability_type :=
 	 altera => 1, apa3 => 1, spartan3 => 1, virtex4 => 1,
 	 lattice => 1, spartan3e => 1, memartisan => 1, virtex5 => 1,
 	 custom1 => 1, stratix1 => 1, stratix2 => 1, stratix3 => 1,
-	 cyclone3 => 1, memvirage90 => 1, atc18rha => 1, smic013 => 1,
+	 cyclone3 => 1, cyclone5 => 1, memvirage90 => 1, atc18rha => 1, smic013 => 1,
 	 tm65gplus => 1, axdsp => 0, spartan6 => 1, virtex6 => 1,
 	 actfus => 1, stratix4 => 1, easic45 => 1, apa3e => 1,
 	 apa3l => 1, ut90 => 1, virtex7 => 1, kintex7 => 1, artix7 => 1, zynq7000 => 1, 
@@ -234,7 +235,7 @@ constant has_sram64 : tech_ability_type :=
 constant has_sram128bw : tech_ability_type := (
 	virtex2 => 1, virtex4 => 1, virtex5 => 1, spartan3 => 1,
 	spartan3e => 1, spartan6 => 1, virtex6 => 1,  virtex7 => 1, kintex7 => 1,
-	altera => 1, cyclone3 => 1, stratix2 => 1, stratix3 => 1, stratix4 => 1,
+	altera => 1, cyclone3 => 1, cyclone5 => 1, stratix2 => 1, stratix3 => 1, stratix4 => 1,
 	ut90 => 1, stratix5 => 1, kintexu => 1, others => 0);
 
 constant has_sram128 : tech_ability_type := (
@@ -245,14 +246,14 @@ constant has_sram128 : tech_ability_type := (
 constant has_sram156bw : tech_ability_type := (
 	virtex2 => 0, virtex4 => 0, virtex5 => 0, spartan3 => 0,
 	spartan3e => 0, spartan6 => 0, virtex6 => 0, virtex7 => 0, kintex7 => 0,
-	altera => 0, cyclone3 => 0, stratix2 => 0, stratix3 => 0, stratix4 => 0,
+	altera => 0, cyclone3 => 0, cyclone5 => 0, stratix2 => 0, stratix3 => 0, stratix4 => 0,
 	tm65gplus => 0, custom1 => 1, ut90 => 1, rhs65 => 1, memrhs65b => 1, stratix5 => 1,
 	kintexu => 0, gf22 => 1, others => 0);
 
 constant has_sram256bw : tech_ability_type := (
 	virtex2 => 1, virtex4 => 1, virtex5 => 1, spartan3 => 1,
 	spartan3e => 1, spartan6 => 1, virtex6 => 1, virtex7 => 1, kintex7 => 1,
-	altera => 1, cyclone3 => 1, stratix2 => 1, stratix3 => 1, stratix4 => 1,
+	altera => 1, cyclone3 => 1, cyclone5 => 1, stratix2 => 1, stratix3 => 1, stratix4 => 1,
 	tm65gplus => 0, cmos9sf => 1, stratix5 => 1, kintexu => 1, others => 0);
 
 constant has_sram_2pbw : tech_ability_type := (
@@ -395,7 +396,7 @@ constant has_tap : tech_ability_type :=
 	 proasic => 0, altera => 1, apa3 => 1, spartan3 => 1,
          virtex4 => 1, lattice => 0, spartan3e => 1, virtex5 => 1,
 	 stratix1 => 1, stratix2 => 1, eclipse => 0,
-	 stratix3 => 1, cyclone3 => 1, axdsp => 0,
+	 stratix3 => 1, cyclone3 => 1, cyclone5 => 1, axdsp => 0,
 	 spartan6 => 1, virtex6 => 1, actfus => 1,
 	 stratix4 => 1, easic45 => 0, apa3e => 1, apa3l => 1, virtex7 => 1, kintex7 => 1,
 	 artix7 => 1, zynq7000 => 1, igloo2 => 1, rtg4 => 1, polarfire => 1, stratix5 => 1,
@@ -406,7 +407,7 @@ constant has_clkgen : tech_ability_type :=
 	 proasic => 1, altera => 1, apa3 => 1, spartan3 => 1,
          virtex4 => 1, lattice => 0, spartan3e => 1, virtex5 => 1,
 	 stratix1 => 1, stratix2 => 1, eclipse => 0, rhumc => 1, saed32 => 1, dare => 1, rhs65 => 1,
-	 stratix3 => 1, cyclone3 => 1, axdsp => 1,
+	 stratix3 => 1, cyclone3 => 1, cyclone5 => 1, axdsp => 1,
 	 spartan6 => 1, virtex6 => 1, actfus => 1, easic90 => 1,
 	 stratix4 => 1, easic45 => 1, apa3e => 1, apa3l => 1,
 	 rhlib18t => 1, ut130 => 1, ut90 => 1, virtex7 => 1, kintex7 => 1, artix7 => 1,
@@ -526,7 +527,7 @@ constant has_transceivers : tech_ability_type := (
   stratix5  => "stratixv  ", memrhs65b => "memrhs65b ",
   kintexu   => "kintexu   ", polarfire => "polarfire ",
   nx        => "nx        ", dare65t   => "dare65t   ",
-  gf22      => "gf22      ");
+  gf22      => "gf22      ", cyclone5  => "cyclonev  ");
 
 -- pragma translate_on
 
