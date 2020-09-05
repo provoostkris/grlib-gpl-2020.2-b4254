@@ -1,0 +1,740 @@
+# Project-Wide Assignments
+# ========================
+#set_global_assignment -name ORIGINAL_QUARTUS_VERSION "4.1 SP2"
+#set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:13:08 DECEMBER 01, 2004"
+
+# Explicitly disable TimeQuest since the GRLIB flow invokes the classical
+# timing analyzer and USE_TIMEQUEST_TIMING_ANALYZER defaults to "ON"
+# set_global_assignment -name USE_TIMEQUEST_TIMING_ANALYZER "OFF"
+
+set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/version.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/config_types.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/config.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/stdlib.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/sparc/sparc.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/riscv/riscv.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/modgen/multlib.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/modgen/leaves.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/amba.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/devices.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/defmst.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/apbctrl.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/apbctrlx.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/apbctrldp.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/apbctrlsp.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/ahbctrl.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/dma2ahb_pkg.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/dma2ahb.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/ahbmst.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/ahblitm2ahbm.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/dftlib/dftlib.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/dftlib/synciotest.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_pkg.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/ahb_be.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/axi4_be.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bmahbmst.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_fre.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_me_rc.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_me_wc.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/fifo_control_rc.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/fifo_control_wc.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_ahb.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_axi.vhd -library grlib
+set_global_assignment -name VHDL_FILE ../../lib/techmap/gencomp/gencomp.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/gencomp/netcomp.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/inferred/memory_inferred.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/inferred/ddr_inferred.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/inferred/mul_inferred.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/inferred/ddr_phy_inferred.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/inferred/ddrphy_datapath.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/inferred/fifo_inferred.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/altera_mf/memory_altera_mf.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/altera_mf/clkgen_altera_mf.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/altera_mf/tap_altera_mf.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/allclkgen.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/techbuf.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/allddr.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/allmem.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/allmul.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/allpads.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/alltap.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/clkgen.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/clkmux.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/clkinv.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/clkand.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/grgates.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/ddr_ireg.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/ddr_oreg.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/clkpad.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/clkpad_ds.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/inpad.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/inpad_ds.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/iodpad.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/iopad.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/iopad_ds.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/lvds_combo.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/odpad.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/outpad.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/outpad_ds.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/toutpad.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/toutpad_ds.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/skew_outpad.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/ddrphy.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram64.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram_2p.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram_dp.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncfifo_2p.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/regfile_3p.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/tap.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/nandtree.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/grlfpw_net.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/grfpw_net.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/leon3_net.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/leon4_net.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/mul_61x61.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/cpu_disas_net.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/ringosc.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/grpci2_phy_net.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/system_monitor.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/inpad_ddr.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/outpad_ddr.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/iopad_ddr.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram128bw.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram256bw.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram128.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram156bw.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/techmult.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/spictrl_net.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/scanreg.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncrambw.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncram_2pbw.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/sdram_phy.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/syncreg.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/serdes.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/iopad_tm.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/toutpad_tm.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/memrwcol.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/techmap/maps/cdcbus.vhd -library techmap
+set_global_assignment -name VHDL_FILE ../../lib/spw/comp/spwcomp.vhd -library spw
+set_global_assignment -name VHDL_FILE ../../lib/spw/wrapper/grspw_gen.vhd -library spw
+set_global_assignment -name VHDL_FILE ../../lib/spw/wrapper/grspw2_gen.vhd -library spw
+set_global_assignment -name VHDL_FILE ../../lib/spw/wrapper/grspw_codec_gen.vhd -library spw
+set_global_assignment -name VHDL_FILE ../../lib/eth/comp/ethcomp.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/eth/core/greth_pkg.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/eth/core/eth_rstgen.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/eth/core/eth_edcl_ahb_mst.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/eth/core/eth_ahb_mst.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/eth/core/greth_tx.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/eth/core/greth_rx.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/eth/core/grethc.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/eth/wrapper/greth_gen.vhd -library eth
+set_global_assignment -name VHDL_FILE ../../lib/opencores/can/cancomp.vhd -library opencores
+set_global_assignment -name VHDL_FILE ../../lib/opencores/can/can_top.vhd -library opencores
+set_global_assignment -name VHDL_FILE ../../lib/opencores/i2c/i2c_master_bit_ctrl.vhd -library opencores
+set_global_assignment -name VHDL_FILE ../../lib/opencores/i2c/i2c_master_byte_ctrl.vhd -library opencores
+set_global_assignment -name VHDL_FILE ../../lib/opencores/i2c/i2coc.vhd -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/clean_rst.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/decoder_8b10b.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/encoder_8b10b.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_constants.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_regs.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_test.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/timescale.v -library opencores
+set_global_assignment -name VHDL_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_comp.vhd -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_an.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_mdio.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_rx.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_sync.v -library opencores
+set_global_assignment -name VERILOG_FILE ../../lib/opencores/ge_1000baseX/ge_1000baseX_tx.v -library opencores
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/arith.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/mul32.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/arith/div32.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/memctrl/memctrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/memctrl/sdctrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/memctrl/sdctrl64.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/memctrl/sdmctrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/memctrl/srctrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/mmuconfig.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/mmuiface.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/libmmu.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/mmutlbcam.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/mmulrue.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/mmulru.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/mmutlb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/mmutw.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/srmmu/mmu.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3/leon3.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3/grfpushwx.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/tbufmem.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/tbufmem_2p.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/dsu3x.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/dsu3.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/dsu3_mb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/libfpu.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/libiu.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/libcache.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/libleon3.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/regfile_3p_l3.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/mmu_acache.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/mmu_icache.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/mmu_dcache.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/cachemem.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/mmu_cache.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/grfpwx.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/grlfpwx.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/iu3.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/proc3.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/grfpwxsh.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/leon3x.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/leon3cg.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/leon3s.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/leon3sh.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/l3stat.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon3v3/cmvalidbits.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon4/leon4.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/irqmp/irqmp.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/irqmp/irqamp.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/irqmp/irqmp_bmode.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/l2cache/pkg/l2cache.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/can/can.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/can/can_mod.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/can/can_oc.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/can/can_mc.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/can/canmux.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/can/can_rd.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/axi/axi.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/axi/ahbm2axi.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/axi/ahbm2axi3.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/axi/ahbm2axi4.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/axi/axinullslv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/axi/ahb2axib.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/axi/ahb2axi3b.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/axi/ahb2axi4b.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/misc.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/rstgen.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/gptimer.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahbram.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahbdpram.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahbtrace_mmb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahbtrace_mb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahbtrace.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/grgpio.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahbstat.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/logan.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/apbps2.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/charrom_package.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/charrom.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/apbvga.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/svgactrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/grsysmon.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/gracectrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/grgpreg.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahb_mst_iface.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/grgprbank.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/grversion.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/apb3cdc.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahbsmux.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/ahbmmux.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/misc/grtachom.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/net/net.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/uart/uart.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/uart/libdcom.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/uart/apbuart.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/uart/dcom.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/uart/dcom_uart.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/uart/ahbuart.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/jtag.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/libjtagcom.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/jtagcom.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/bscanregs.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/bscanregsbd.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/jtagcom2.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/ahbjtag.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/ahbjtag_bsd.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/jtagcomrv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/jtag/ahbjtagrv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/ethernet_mac.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/greth.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/greth_mb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/greth_gbit.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/greths.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/greth_gbit_mb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/greths_mb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/grethm.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/grethm_mb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/rgmii.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/rgmii_kc705.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/rgmii_series7.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/rgmii_series6.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/comma_detect.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/sgmii.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/elastic_buffer.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/gmii_to_mii.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/greth/adapters/word_aligner.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/spacefibre/spacefibre.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2c.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2cmst.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2cmst_gen.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2cslv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2c2ahbx.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2c2ahb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2c2ahb_apb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2c2ahb_gen.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/i2c/i2c2ahb_apb_gen.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/spi/spi.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/spi/spimctrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/spi/spictrlx.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/spi/spictrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/spi/spi2ahbx.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/spi/spi2ahb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/spi/spi2ahb_apb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac/grdmac_pkg.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac/apbmem.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac/grdmac_ahbmst.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac/grdmac_alignram.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac/grdmac.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac/grdmac_1p.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac2/grdmac2_pkg.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac2/grdmac2_apb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac2/mem2buf.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac2/buf2mem.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac2/grdmac2_ctrl.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac2/grdmac2.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/grdmac2/grdmac2_ahb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/subsys/subsys.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/subsys/leon_dsu_stat_base.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/pkg/noelv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/pkg/util.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/mmuconfig.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/noelvint.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/bhtnv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/btbnv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/rasnv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/tbufmemnv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/cachememnv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/mul64.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/div64.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/regfile64nv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/progbuf.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/iunv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/cpucorenv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/rvdmx.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/rvdm.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/cctrlnv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/noelvcpu.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/fakefpunv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/core/nanofpunv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/riscv/riscv.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/riscv/clint.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/riscv/clint_ahb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/plic/plic.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/plic/grplic.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/plic/plic_encoder.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/plic/plic_gateway.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/plic/plic_target.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/plic/grplic_ahb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/subsys/noelvsys.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5/leon5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/leon5int.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/itbufmem5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/bht_pap.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/btb.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/inst_text.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/iu5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/cctrl5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/cachemem5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/regfile5_ram.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/regfile5_dff.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/nanofpu.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/cpucore5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/tbufmem5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/dbgmod5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/irqmp5.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/gaisler/leon5v0/leon5sys.vhd -library gaisler
+set_global_assignment -name VHDL_FILE ../../lib/esa/memoryctrl/memoryctrl.vhd -library esa
+set_global_assignment -name VHDL_FILE ../../lib/esa/memoryctrl/mctrl.vhd -library esa
+set_global_assignment -name VHDL_FILE config.vhd
+set_global_assignment -name VHDL_FILE clkgen_de0.vhd
+set_global_assignment -name VHDL_FILE sdctrl16.vhd
+set_global_assignment -name VHDL_FILE ahbrom.vhd
+set_global_assignment -name VHDL_FILE leon3mp.vhd
+
+#============================================================
+# Build by Terasic System Builder
+#============================================================
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE22F17C6
+set_global_assignment -name TOP_LEVEL_ENTITY "leon3mp"
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.1"
+set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:22:00 FEBRUARY 21,2011"
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 256
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 6
+set_global_assignment -name SDC_FILE default.sdc
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_FLASH_NCE_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA0_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DCLK_AFTER_CONFIGURATION "USE AS REGULAR IO"
+
+#============================================================
+# CLOCK
+#============================================================
+set_location_assignment PIN_R8 -to CLOCK_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50
+
+#============================================================
+# LED
+#============================================================
+set_location_assignment PIN_A15 -to LED[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[0]
+set_location_assignment PIN_A13 -to LED[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[1]
+set_location_assignment PIN_B13 -to LED[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[2]
+set_location_assignment PIN_A11 -to LED[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[3]
+set_location_assignment PIN_D1 -to LED[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[4]
+set_location_assignment PIN_F3 -to LED[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[5]
+set_location_assignment PIN_B1 -to LED[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[6]
+set_location_assignment PIN_L3 -to LED[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[7]
+
+#============================================================
+# KEY
+#============================================================
+set_location_assignment PIN_J15 -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
+set_location_assignment PIN_E1 -to KEY[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1]
+
+#============================================================
+# SW
+#============================================================
+set_location_assignment PIN_M1 -to SW[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0]
+set_location_assignment PIN_T8 -to SW[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1]
+set_location_assignment PIN_B9 -to SW[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2]
+set_location_assignment PIN_M15 -to SW[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3]
+
+#============================================================
+# SDRAM
+#============================================================
+set_location_assignment PIN_M7 -to DRAM_BA[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[0]
+set_location_assignment PIN_M6 -to DRAM_BA[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[1]
+set_location_assignment PIN_R6 -to DRAM_DQM[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQM[0]
+set_location_assignment PIN_T5 -to DRAM_DQM[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQM[1]
+set_location_assignment PIN_L2 -to DRAM_RAS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N
+set_location_assignment PIN_L1 -to DRAM_CAS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CAS_N
+set_location_assignment PIN_L7 -to DRAM_CKE
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CKE
+set_location_assignment PIN_R4 -to DRAM_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CLK
+set_location_assignment PIN_C2 -to DRAM_WE_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_WE_N
+set_location_assignment PIN_P6 -to DRAM_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CS_N
+set_location_assignment PIN_G2 -to DRAM_DQ[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[0]
+set_location_assignment PIN_G1 -to DRAM_DQ[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[1]
+set_location_assignment PIN_L8 -to DRAM_DQ[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[2]
+set_location_assignment PIN_K5 -to DRAM_DQ[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[3]
+set_location_assignment PIN_K2 -to DRAM_DQ[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[4]
+set_location_assignment PIN_J2 -to DRAM_DQ[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[5]
+set_location_assignment PIN_J1 -to DRAM_DQ[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[6]
+set_location_assignment PIN_R7 -to DRAM_DQ[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[7]
+set_location_assignment PIN_T4 -to DRAM_DQ[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[8]
+set_location_assignment PIN_T2 -to DRAM_DQ[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[9]
+set_location_assignment PIN_T3 -to DRAM_DQ[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[10]
+set_location_assignment PIN_R3 -to DRAM_DQ[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[11]
+set_location_assignment PIN_R5 -to DRAM_DQ[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[12]
+set_location_assignment PIN_P3 -to DRAM_DQ[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[13]
+set_location_assignment PIN_N3 -to DRAM_DQ[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[14]
+set_location_assignment PIN_K1 -to DRAM_DQ[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[15]
+set_location_assignment PIN_P2 -to DRAM_ADDR[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[0]
+set_location_assignment PIN_N5 -to DRAM_ADDR[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[1]
+set_location_assignment PIN_N6 -to DRAM_ADDR[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[2]
+set_location_assignment PIN_M8 -to DRAM_ADDR[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[3]
+set_location_assignment PIN_P8 -to DRAM_ADDR[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[4]
+set_location_assignment PIN_T7 -to DRAM_ADDR[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[5]
+set_location_assignment PIN_N8 -to DRAM_ADDR[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[6]
+set_location_assignment PIN_T6 -to DRAM_ADDR[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[7]
+set_location_assignment PIN_R1 -to DRAM_ADDR[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[8]
+set_location_assignment PIN_P1 -to DRAM_ADDR[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[9]
+set_location_assignment PIN_N2 -to DRAM_ADDR[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[10]
+set_location_assignment PIN_N1 -to DRAM_ADDR[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[11]
+set_location_assignment PIN_L4 -to DRAM_ADDR[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[12]
+
+#============================================================
+# EPCS
+#============================================================
+set_location_assignment PIN_H2 -to EPCS_DATA0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to EPCS_DATA0
+set_location_assignment PIN_H1 -to EPCS_DCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to EPCS_DCLK
+set_location_assignment PIN_D2 -to EPCS_NCSO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to EPCS_NCSO
+set_location_assignment PIN_C1 -to EPCS_ASDO
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to EPCS_ASDO
+
+#============================================================
+# Accelerometer and EEPROM
+#============================================================
+set_location_assignment PIN_F2 -to I2C_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to I2C_SCLK
+set_location_assignment PIN_F1 -to I2C_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to I2C_SDAT
+set_location_assignment PIN_G5 -to G_SENSOR_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to G_SENSOR_CS_N
+set_location_assignment PIN_M2 -to G_SENSOR_INT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to G_SENSOR_INT
+
+#============================================================
+# ADC
+#============================================================
+set_location_assignment PIN_A10 -to ADC_CS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CS_N
+set_location_assignment PIN_B10 -to ADC_SADDR
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SADDR
+set_location_assignment PIN_B14 -to ADC_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SCLK
+set_location_assignment PIN_A9 -to ADC_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SDAT
+
+#============================================================
+# 2x13 GPIO Header
+#============================================================
+set_location_assignment PIN_A14 -to GPIO_2[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[0]
+set_location_assignment PIN_B16 -to GPIO_2[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[1]
+set_location_assignment PIN_C14 -to GPIO_2[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[2]
+set_location_assignment PIN_C16 -to GPIO_2[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[3]
+set_location_assignment PIN_C15 -to GPIO_2[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[4]
+set_location_assignment PIN_D16 -to GPIO_2[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[5]
+set_location_assignment PIN_D15 -to GPIO_2[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[6]
+set_location_assignment PIN_D14 -to GPIO_2[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[7]
+set_location_assignment PIN_F15 -to GPIO_2[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[8]
+set_location_assignment PIN_F16 -to GPIO_2[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[9]
+set_location_assignment PIN_F14 -to GPIO_2[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[10]
+set_location_assignment PIN_G16 -to GPIO_2[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[11]
+set_location_assignment PIN_G15 -to GPIO_2[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2[12]
+set_location_assignment PIN_E15 -to GPIO_2_IN[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2_IN[0]
+set_location_assignment PIN_E16 -to GPIO_2_IN[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2_IN[1]
+set_location_assignment PIN_M16 -to GPIO_2_IN[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2_IN[2]
+
+#============================================================
+# GPIO_0, GPIO_0 connect to GPIO Default
+#============================================================
+set_location_assignment PIN_A8 -to GPIO_0_IN[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0_IN[0]
+set_location_assignment PIN_D3 -to GPIO_0[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0]
+set_location_assignment PIN_B8 -to GPIO_0_IN[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0_IN[1]
+set_location_assignment PIN_C3 -to GPIO_0[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[1]
+set_location_assignment PIN_A2 -to GPIO_0[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[2]
+set_location_assignment PIN_A3 -to GPIO_0[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[3]
+set_location_assignment PIN_B3 -to GPIO_0[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[4]
+set_location_assignment PIN_B4 -to GPIO_0[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[5]
+set_location_assignment PIN_A4 -to GPIO_0[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[6]
+set_location_assignment PIN_B5 -to GPIO_0[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[7]
+set_location_assignment PIN_A5 -to GPIO_0[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[8]
+set_location_assignment PIN_D5 -to GPIO_0[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[9]
+set_location_assignment PIN_B6 -to GPIO_0[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[10]
+set_location_assignment PIN_A6 -to GPIO_0[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[11]
+set_location_assignment PIN_B7 -to GPIO_0[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[12]
+set_location_assignment PIN_D6 -to GPIO_0[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[13]
+set_location_assignment PIN_A7 -to GPIO_0[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[14]
+set_location_assignment PIN_C6 -to GPIO_0[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[15]
+set_location_assignment PIN_C8 -to GPIO_0[16]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[16]
+set_location_assignment PIN_E6 -to GPIO_0[17]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[17]
+set_location_assignment PIN_E7 -to GPIO_0[18]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[18]
+set_location_assignment PIN_D8 -to GPIO_0[19]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[19]
+set_location_assignment PIN_E8 -to GPIO_0[20]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[20]
+set_location_assignment PIN_F8 -to GPIO_0[21]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[21]
+set_location_assignment PIN_F9 -to GPIO_0[22]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[22]
+set_location_assignment PIN_E9 -to GPIO_0[23]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[23]
+set_location_assignment PIN_C9 -to GPIO_0[24]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[24]
+set_location_assignment PIN_D9 -to GPIO_0[25]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[25]
+set_location_assignment PIN_E11 -to GPIO_0[26]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[26]
+set_location_assignment PIN_E10 -to GPIO_0[27]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[27]
+set_location_assignment PIN_C11 -to GPIO_0[28]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[28]
+set_location_assignment PIN_B11 -to GPIO_0[29]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[29]
+set_location_assignment PIN_A12 -to GPIO_0[30]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[30]
+set_location_assignment PIN_D11 -to GPIO_0[31]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[31]
+set_location_assignment PIN_D12 -to GPIO_0[32]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[32]
+set_location_assignment PIN_B12 -to GPIO_0[33]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[33]
+
+#============================================================
+# GPIO_1, GPIO_1 connect to GPIO Default
+#============================================================
+set_location_assignment PIN_T9 -to GPIO_1_IN[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1_IN[0]
+set_location_assignment PIN_F13 -to GPIO_1[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[0]
+set_location_assignment PIN_R9 -to GPIO_1_IN[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1_IN[1]
+set_location_assignment PIN_T15 -to GPIO_1[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[1]
+set_location_assignment PIN_T14 -to GPIO_1[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[2]
+set_location_assignment PIN_T13 -to GPIO_1[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[3]
+set_location_assignment PIN_R13 -to GPIO_1[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[4]
+set_location_assignment PIN_T12 -to GPIO_1[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[5]
+set_location_assignment PIN_R12 -to GPIO_1[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[6]
+set_location_assignment PIN_T11 -to GPIO_1[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[7]
+set_location_assignment PIN_T10 -to GPIO_1[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[8]
+set_location_assignment PIN_R11 -to GPIO_1[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[9]
+set_location_assignment PIN_P11 -to GPIO_1[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[10]
+set_location_assignment PIN_R10 -to GPIO_1[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[11]
+set_location_assignment PIN_N12 -to GPIO_1[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[12]
+set_location_assignment PIN_P9 -to GPIO_1[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[13]
+set_location_assignment PIN_N9 -to GPIO_1[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[14]
+set_location_assignment PIN_N11 -to GPIO_1[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[15]
+set_location_assignment PIN_L16 -to GPIO_1[16]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[16]
+set_location_assignment PIN_K16 -to GPIO_1[17]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[17]
+set_location_assignment PIN_R16 -to GPIO_1[18]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[18]
+set_location_assignment PIN_L15 -to GPIO_1[19]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[19]
+set_location_assignment PIN_P15 -to GPIO_1[20]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[20]
+set_location_assignment PIN_P16 -to GPIO_1[21]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[21]
+set_location_assignment PIN_R14 -to GPIO_1[22]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[22]
+set_location_assignment PIN_N16 -to GPIO_1[23]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[23]
+set_location_assignment PIN_N15 -to GPIO_1[24]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[24]
+set_location_assignment PIN_P14 -to GPIO_1[25]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[25]
+set_location_assignment PIN_L14 -to GPIO_1[26]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[26]
+set_location_assignment PIN_N14 -to GPIO_1[27]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[27]
+set_location_assignment PIN_M10 -to GPIO_1[28]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[28]
+set_location_assignment PIN_L13 -to GPIO_1[29]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[29]
+set_location_assignment PIN_J16 -to GPIO_1[30]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[30]
+set_location_assignment PIN_K15 -to GPIO_1[31]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[31]
+set_location_assignment PIN_J13 -to GPIO_1[32]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[32]
+set_location_assignment PIN_J14 -to GPIO_1[33]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[33]
+
+#============================================================
+# End of pin assignments by Terasic System Builder
+#============================================================
+
+
