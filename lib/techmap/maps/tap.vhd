@@ -178,7 +178,7 @@ begin
 
   alt : if (tech = altera) or (tech = stratix1) or (tech = stratix2) or
 	(tech = stratix3) or (tech = stratix4) or (tech = cyclone3) or
-        (tech = stratix5) generate
+        (tech = stratix5) or (tech = cyclone5) generate
      u0 : altera_tap port map (tapi_tdo1, tapi_tdo1, ltck, tapo_tdi, tapo_inst, tapo_rst,
                                 tapo_capt, tapo_shft, tapo_upd, tapo_xsel1, tapo_xsel2);
      tdoen <= '0'; tdo <= '0';
