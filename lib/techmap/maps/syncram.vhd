@@ -318,7 +318,7 @@ begin
 
   alt : if (xtech = altera) or (xtech = stratix1) or (xtech = stratix2) or
 	(xtech = stratix3) or (xtech = stratix4) or (xtech = cyclone3) or
-        (xtech = stratix5) generate
+        (xtech = stratix5) or (xtech = cyclone5) generate
     x0 : altera_syncram generic map(abits, dbits)
          port map(clk, address, datain, dataoutx, xenable, xwrite);
   end generate;

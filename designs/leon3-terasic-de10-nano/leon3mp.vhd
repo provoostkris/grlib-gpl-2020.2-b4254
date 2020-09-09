@@ -51,7 +51,7 @@ use work.config.all;
 
 entity leon3mp is
   generic (
-    fabtech   : integer := CFG_FABTECH;
+    fabtech   : integer := CFG_FABTECH; -- support for cyclone 5 added in libs
     memtech   : integer := CFG_MEMTECH;
     padtech   : integer := CFG_PADTECH;
     clktech   : integer := CFG_CLKTECH;
@@ -256,25 +256,25 @@ end process p_led;
     end generate;
   end generate;
 
-  sh : if CFG_GRFPUSH = 1 generate
-    cpu : for i in 0 to CFG_NCPU-1 generate
-      u0 : leon3sh 		-- LEON3 processor      
-      generic map ( i, fabtech, memtech, CFG_NWIN, CFG_DSU, CFG_FPU, CFG_V8, 
-                    0, CFG_MAC, pclow, CFG_NOTAG, CFG_NWP, CFG_ICEN, CFG_IREPL, CFG_ISETS, CFG_ILINE, 
-                    CFG_ISETSZ, CFG_ILOCK, CFG_DCEN, CFG_DREPL, CFG_DSETS, CFG_DLINE, CFG_DSETSZ,
-                    CFG_DLOCK, CFG_DSNOOP, CFG_ILRAMEN, CFG_ILRAMSZ, CFG_ILRAMADDR, CFG_DLRAMEN,
-                    CFG_DLRAMSZ, CFG_DLRAMADDR, CFG_MMUEN, CFG_ITLBNUM, CFG_DTLBNUM, CFG_TLB_TYPE, CFG_TLB_REP, 
-                    CFG_LDDEL, disas, CFG_ITBSZ, CFG_PWD, CFG_SVT, CFG_RSTADDR, CFG_NCPU-1,
-                    0, 0, CFG_MMU_PAGE, CFG_BP, CFG_NP_ASI, CFG_WRPSR)
-      port map (    clkm, rstn, ahbmi, ahbmo(i), ahbsi, ahbso, 
-                    irqi(i), irqo(i), dbgi(i), dbgo(i), fpi(i), fpo(i));
-  end generate;
+  -- sh : if CFG_GRFPUSH = 1 generate
+    -- cpu : for i in 0 to CFG_NCPU-1 generate
+      -- u0 : leon3sh 		-- LEON3 processor      
+      -- generic map ( i, fabtech, memtech, CFG_NWIN, CFG_DSU, CFG_FPU, CFG_V8, 
+                    -- 0, CFG_MAC, pclow, CFG_NOTAG, CFG_NWP, CFG_ICEN, CFG_IREPL, CFG_ISETS, CFG_ILINE, 
+                    -- CFG_ISETSZ, CFG_ILOCK, CFG_DCEN, CFG_DREPL, CFG_DSETS, CFG_DLINE, CFG_DSETSZ,
+                    -- CFG_DLOCK, CFG_DSNOOP, CFG_ILRAMEN, CFG_ILRAMSZ, CFG_ILRAMADDR, CFG_DLRAMEN,
+                    -- CFG_DLRAMSZ, CFG_DLRAMADDR, CFG_MMUEN, CFG_ITLBNUM, CFG_DTLBNUM, CFG_TLB_TYPE, CFG_TLB_REP, 
+                    -- CFG_LDDEL, disas, CFG_ITBSZ, CFG_PWD, CFG_SVT, CFG_RSTADDR, CFG_NCPU-1,
+                    -- 0, 0, CFG_MMU_PAGE, CFG_BP, CFG_NP_ASI, CFG_WRPSR)
+      -- port map (    clkm, rstn, ahbmi, ahbmo(i), ahbsi, ahbso, 
+                    -- irqi(i), irqo(i), dbgi(i), dbgo(i), fpi(i), fpo(i));
+  -- end generate;
     
-    grfpush0 : grfpushwx 
-        generic map ((CFG_FPU-1), CFG_NCPU, fabtech)
-        port map    (clkm, rstn, fpi, fpo);
+    -- grfpush0 : grfpushwx 
+        -- generic map ((CFG_FPU-1), CFG_NCPU, fabtech)
+        -- port map    (clkm, rstn, fpi, fpo);
     
-  end generate;
+  -- end generate;
 
   errorn_pad : outpad generic map (tech => padtech) port map (led(3), dbgo(0).error);
   
