@@ -56,6 +56,7 @@ entity leon3mp is
     padtech   : integer := CFG_PADTECH; -- using default tech
     clktech   : integer := CFG_CLKTECH; -- using altera macro function for PLL
     disas     : integer := CFG_DISAS;
+    dbguart   : integer := CFG_DUART;
     pclow     : integer := CFG_PCLOW
     );
   port (
