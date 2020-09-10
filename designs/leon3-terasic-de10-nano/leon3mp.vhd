@@ -52,11 +52,10 @@ use work.config.all;
 entity leon3mp is
   generic (
     fabtech   : integer := CFG_FABTECH; -- support for cyclone 5 added in libs
-    memtech   : integer := CFG_MEMTECH;
-    padtech   : integer := CFG_PADTECH;
-    clktech   : integer := CFG_CLKTECH;
+    memtech   : integer := CFG_MEMTECH; -- support for cyclone 5 added in libs
+    padtech   : integer := CFG_PADTECH; -- using default tech
+    clktech   : integer := CFG_CLKTECH; -- using altera macro function for PLL
     disas     : integer := CFG_DISAS;
-    dbguart   : integer := CFG_DUART;
     pclow     : integer := CFG_PCLOW
     );
   port (

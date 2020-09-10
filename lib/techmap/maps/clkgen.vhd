@@ -119,6 +119,11 @@ begin
    generic map (clk_mul, clk_div, sdramen, noclkfb, pcien, pcidll, pcisysclk, freq, clk2xen)
    port map (clkin, pciclkin, clk, clkn, clk2x, sdclk, pciclk, cgi, cgo);
   end generate;
+  cyc5 : if (tech = cyclone5)  generate -- for now the macro function will do 
+   v : clkgen_altera_mf
+   generic map (clk_mul, clk_div, sdramen, noclkfb, pcien, pcidll, pcisysclk, freq, clk2xen)
+   port map (clkin, pciclkin, clk, clkn, clk2x, sdclk, pciclk, cgi, cgo);
+  end generate;
   stra3 : if (tech = stratix3) or (tech = stratix4) or (tech = stratix5) generate
    v : clkgen_stratixiii
    generic map (clk_mul, clk_div, sdramen, noclkfb, pcien, pcidll, pcisysclk, freq, clk2xen)
