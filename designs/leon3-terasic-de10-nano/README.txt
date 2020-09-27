@@ -18,8 +18,8 @@ Implementation:
 - The CPU is a single core LEON
 - It will run at 50 MHz, using a PLL
 - A small amount of onchip SRAM is provided
-- GPIO_0 is mapped for input only
-- GPIO_1 is mapped for output only
+- GPIO_0 is mapped (in the assigment file) for input only
+- GPIO_1 is mapped (in the assigment file) for output only
 - KEY_0 is for RESET of the system
 - KEY_1 is for the DSU break control
 - SW(0) is for the DSU enable control
@@ -40,8 +40,6 @@ Flow:
 Debug:
 - Connect a FTDI breakout adapter to the windows machine
   >> FTDI.GND <> GPIO1.12
-  >> FTDI.CTS <> GPIO0.32
-  >> FTDI.RTS <> GPIO1.32
   >> FTDI.TX  <> GPIO0.40
   >> FTDI.RX  <> GPIO1.01
   >>             GPIO signals as listed on the board (not the VHDL)
