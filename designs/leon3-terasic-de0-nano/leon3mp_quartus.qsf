@@ -368,8 +368,8 @@ set_global_assignment -name VHDL_FILE leon3mp.vhd
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE EP4CE22F17C6
 set_global_assignment -name TOP_LEVEL_ENTITY "leon3mp"
-set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.1"
-set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 10.1
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "16:22:00 FEBRUARY 21,2011"
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 256
@@ -584,14 +584,15 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_2_IN[2]
 #============================================================
 # GPIO_0, GPIO_0 connect to GPIO Default
 #============================================================
+set_location_assignment PIN_D3 -to gpio_rx
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gpio_rx
+set_location_assignment PIN_C3 -to gpio_tx
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gpio_tx
+
 set_location_assignment PIN_A8 -to GPIO_0_IN[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0_IN[0]
-set_location_assignment PIN_D3 -to GPIO_0[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0]
 set_location_assignment PIN_B8 -to GPIO_0_IN[1]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0_IN[1]
-set_location_assignment PIN_C3 -to GPIO_0[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[1]
 set_location_assignment PIN_A2 -to GPIO_0[2]
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[2]
 set_location_assignment PIN_A3 -to GPIO_0[3]
@@ -738,3 +739,8 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[33]
 #============================================================
 
 
+
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

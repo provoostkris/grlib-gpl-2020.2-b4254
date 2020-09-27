@@ -94,7 +94,9 @@ entity leon3mp is
     gpio_1        : inout std_logic_vector(33 downto 0);
 
     gpio_0_in     : in    std_logic_vector(1 downto 0);
-    gpio_0        : inout std_logic_vector(33 downto 0)
+    gpio_0        : inout std_logic_vector(33 downto 2);
+    gpio_rx       : in    std_logic;
+    gpio_tx       : out   std_logic
 
     );
 end;
@@ -120,6 +122,9 @@ architecture rtl of leon3mp is
   signal u1i  : uart_in_type;
   signal u1o  : uart_out_type;
 
+  signal dui  : uart_in_type;
+  signal duo  : uart_out_type;
+  
   signal irqi : irq_in_vector(0 to CFG_NCPU-1);
   signal irqo : irq_out_vector(0 to CFG_NCPU-1);
 
@@ -186,7 +191,7 @@ begin
   ahb0 : ahbctrl 		-- AHB arbiter/multiplexer
   generic map (defmast => CFG_DEFMST, split => CFG_SPLIT, 
                rrobin => CFG_RROBIN, ioaddr => CFG_AHBIO, ioen => IOAEN,
-               nahbm => CFG_NCPU+CFG_AHB_JTAG,
+               nahbm => CFG_NCPU+CFG_AHB_JTAG+1,
                nahbs => 6) 
   port map (rstn, clkm, ahbmi, ahbmo, ahbsi, ahbso);
 
@@ -246,12 +251,26 @@ begin
   nodsu : if CFG_DSU = 0 generate 
     ahbso(2) <= ahbs_none; dsuo.tstop <= '0'; dsuo.active <= '0';
   end generate;
-
+  
   ahbjtaggen0 :if CFG_AHB_JTAG = 1 generate
-    ahbjtag0 : ahbjtag generic map(tech => fabtech, hindex => CFG_NCPU)
-      port map(rstn, clkm, tck, tms, tdi, tdo, ahbmi, ahbmo(CFG_NCPU),
-               open, open, open, open, open, open, open, gnd(0));
+    ahbjtag0 : ahbjtag 
+      generic map ( tech => fabtech, hindex => CFG_NCPU)
+      port map    ( rstn, clkm, tck, tms, tdi, tdo, ahbmi, ahbmo(CFG_NCPU),
+                    open, open, open, open, open, open, open, gnd(0));
   end generate;
+  
+  -- Debug UART
+  dcom0 : ahbuart 
+    generic map   (hindex => CFG_NCPU+CFG_AHB_JTAG, 
+                   pindex => 6, paddr => 6)
+    port map      (rstn, clkm, dui, duo, apbi, apbo(6), ahbmi, ahbmo(CFG_NCPU+CFG_AHB_JTAG));
+  
+  dsurx_pad   : inpad generic map   (tech  => padtech) port map (gpio_rx, dui.rxd);
+  dsutx_pad   : outpad generic map  (tech  => padtech) port map (gpio_tx, duo.txd);
+  dcom_rx_pad : outpad generic map  (tech  => padtech) port map (LED(4), not dui.rxd);
+  dcom_tx_pad : outpad generic map  (tech  => padtech) port map (LED(5), not duo.txd);
+  dui.ctsn   <= '0';
+  dui.extclk <= '0';
   
 ----------------------------------------------------------------------
 ---  Memory controllers ----------------------------------------------
@@ -378,7 +397,7 @@ begin
 
   spic: if CFG_SPICTRL_ENABLE = 1 generate  -- SPI controller
     spi1 : spictrl
-      generic map (pindex => 5, paddr  => 5, pmask  => 16#fff#, pirq => 5,
+      generic map (pindex => 5, paddr => 5, pmask  => 16#fff#, pirq => 5,
                    fdepth => CFG_SPICTRL_FIFO, slvselen => CFG_SPICTRL_SLVREG,
                    slvselsz => CFG_SPICTRL_SLVS, odmode => 0, netlist => 0,
                    syncram => CFG_SPICTRL_SYNCRAM, ft => CFG_SPICTRL_FT)
@@ -409,7 +428,7 @@ begin
     grgpio0: grgpio
       generic map( pindex => 9, paddr => 9, imask => CFG_GRGPIO_IMASK, nbits => CFG_GRGPIO_WIDTH)
       port map( rstn, clkm, apbi, apbo(9), gpio0i, gpio0o);
-    pio_pads : for i in 0 to CFG_GRGPIO_WIDTH-1 generate
+    pio_pads : for i in 2 to CFG_GRGPIO_WIDTH-1 generate
       pio_pad : iopad generic map (tech => padtech)
         port map (gpio_0(i), gpio0o.dout(i), gpio0o.oen(i), gpio0i.din(i));
     end generate;
@@ -428,8 +447,8 @@ begin
   nogpio1: if CFG_GRGPIO2_ENABLE = 0 generate apbo(10) <= apb_none; end generate;
 
   grgpio2: grgpio                       -- GRGPIO2 port
-    generic map( pindex => 11, paddr => 11, imask => 2**30, nbits => 31)
-    port map( rstn, clkm, apbi, apbo(11), gpio2i, gpio2o);
+      generic map( pindex => 11, paddr => 11, imask => 2**30, nbits => 31)
+      port map( rstn, clkm, apbi, apbo(11), gpio2i, gpio2o);
   gpio_2_pads :  iopadvv generic map (tech => padtech, width => 13)
     port map (gpio_2(12 downto 0), gpio2o.dout(12 downto 0), gpio2o.oen(12 downto 0),
               gpio2i.din(12 downto 0));
@@ -445,9 +464,8 @@ begin
               gpio2i.din(21 downto 20));
   gpio_1_inpads : inpadv generic map (tech => padtech, width => 2)
     port map (gpio_1_in, gpio2i.din(23 downto 22));
-  led_pads :  iopadvv generic map (tech => padtech, width => 6)
-    port map (led(5 downto 0), gpio2o.dout(29 downto 24), gpio2o.oen(29 downto 24),
-              gpio2i.din(29 downto 24));
+  led_pads :  iopadvv generic map (tech => padtech, width => 4)
+    port map (led(3 downto 0), gpio2o.dout(27 downto 24), gpio2o.oen(27 downto 24), gpio2i.din(27 downto 24));
   g_sensor_int_pad : inpad generic map (tech => padtech)
     port map (g_sensor_int, gpio2i.din(30));
 --  g_sensor_cs_n_pad : outpad generic map (tech => padtech)
@@ -457,7 +475,8 @@ begin
   
   ahbs : if CFG_AHBSTAT = 1 generate	-- AHB status register
     stati <= ahbstat_in_none;
-    ahbstat0 : ahbstat generic map (pindex => 15, paddr => 15, pirq => 1, nftslv => CFG_AHBSTATN)
+    ahbstat0 : ahbstat 
+      generic map (pindex => 15, paddr => 15, pirq => 1, nftslv => CFG_AHBSTATN)
       port map (rstn, clkm, ahbmi, ahbsi, stati, apbi, apbo(15));
   end generate;
   nop2 : if CFG_AHBSTAT = 0 generate apbo(15) <= apb_none; end generate;

@@ -107,7 +107,7 @@ package config is
   constant CFG_AHBSTAT : integer := 1;
   constant CFG_AHBSTATN : integer := (1);
 -- SPI memory controller
-  constant CFG_SPIMCTRL : integer := 1;
+  constant CFG_SPIMCTRL : integer := 0;
   constant CFG_SPIMCTRL_SDCARD : integer := 0;
   constant CFG_SPIMCTRL_READCMD : integer := 16#0B#;
   constant CFG_SPIMCTRL_DUMMYBYTE : integer := 1;
@@ -147,7 +147,7 @@ package config is
   constant CFG_GRGPIO_IMASK : integer := 16#fe#;
   constant CFG_GRGPIO_WIDTH : integer := (32);
 -- Second GPIO port
-  constant CFG_GRGPIO2_ENABLE : integer := 1;
+  constant CFG_GRGPIO2_ENABLE : integer := 0;
   constant CFG_GRGPIO2_IMASK : integer := 16#fe#;
   constant CFG_GRGPIO2_WIDTH : integer := (32);
 -- I2C master
@@ -167,5 +167,5 @@ package config is
   constant CFG_SPICTRL_FT : integer := 0;
   constant CFG_SPICTRL_PROT : integer := 0;
 -- GRLIB debugging
-  constant CFG_DUART : integer := 0;
+  constant CFG_DUART : integer := 1;
 end;

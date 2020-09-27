@@ -19,20 +19,24 @@ might need to start jtagd as root to get the proper port permissions.
 
 The output from grmon should look something like this:
 
-  GRMON LEON debug monitor v3.0.13
-  
-  Copyright (C) 2018 Cobham Gaisler - All rights reserved.
+
+C:\Users\Kris\Downloads\grmon-eval-64-3.2.5\grmon-eval-3.2.5\windows\bin64>grmon -uart com4
+
+  GRMON debug monitor v3.2.5 64-bit eval version
+
+  Copyright (C) 2020 Cobham Gaisler - All rights reserved.
   For latest updates, go to http://www.gaisler.com/
   Comments or bug-reports to support@gaisler.com
 
-JTAG chain (1): EP3C25/EP4CE22
-  GRLIB build version: 4229
-  Detected frequency:  50 MHz
-  
+  This eval version will expire on 20/02/2021
+
+  GRLIB build version: 4254
+  Detected frequency:  50,0 MHz
+
   Component                            Vendor
   LEON3 SPARC V8 Processor             Cobham Gaisler
   JTAG Debug Link                      Cobham Gaisler
-  SPI Memory Controller                Cobham Gaisler
+  AHB Debug UART                       Cobham Gaisler
   AHB/APB Bridge                       Cobham Gaisler
   LEON3 Debug Support Unit             Cobham Gaisler
   PC133 SDRAM Controller               Cobham Gaisler
@@ -43,9 +47,8 @@ JTAG chain (1): EP3C25/EP4CE22
   SPI Controller                       Cobham Gaisler
   General Purpose I/O port             Cobham Gaisler
   General Purpose I/O port             Cobham Gaisler
-  General Purpose I/O port             Cobham Gaisler
   AHB Status Register                  Cobham Gaisler
-  
+
   Use command 'info sys' to print a detailed report of attached cores
 
 grmon3> info sys
@@ -53,29 +56,24 @@ grmon3> info sys
             AHB Master 0
   ahbjtag0  Cobham Gaisler  JTAG Debug Link
             AHB Master 1
-  spim0     Cobham Gaisler  SPI Memory Controller
-            AHB: FFF00200 - FFF00300
-            AHB: 00000000 - 10000000
-            IRQ: 10
-            SPI memory device read command: 0x0b
+  ahbuart0  Cobham Gaisler  AHB Debug UART
+            AHB Master 2
+            APB: 80000600 - 80000700
+            Baudrate 115200, AHB frequency 50,00 MHz
   apbmst0   Cobham Gaisler  AHB/APB Bridge
             AHB: 80000000 - 80100000
   dsu0      Cobham Gaisler  LEON3 Debug Support Unit
-            AHB: 90000000 - A0000000
-            AHB trace: 1024 lines, 32-bit bus
-            CPU0:  win 8, nwp 4, itrace 1024, V8 mul/div, lddel 1
-                   stack pointer 0x40fffff0
-                   icache 2 * 4 kB, 32 B/line
-                   dcache 2 * 4 kB, 16 B/line
+            AHB: 90000000 - a0000000
+            Device is disabled
   sdctrl0   Cobham Gaisler  PC133 SDRAM Controller
             AHB: 40000000 - 42000000
-            AHB: FFF00100 - FFF00200
+            AHB: fff00100 - fff00200
             32-bit sdram: 1 * 16 Mbyte @ 0x40000000,
-            col 8, cas 2, ref 7.8 us
+            col 8, cas 2, ref 7,8 us
   uart0     Cobham Gaisler  Generic UART
             APB: 80000100 - 80000200
             IRQ: 2
-            Baudrate 38343, FIFO debug mode
+            Baudrate 38343, FIFO debug mode available
   irqmp0    Cobham Gaisler  Multi-processor Interrupt Ctrl.
             APB: 80000200 - 80000300
   gptimer0  Cobham Gaisler  Modular Timer Unit
@@ -93,14 +91,14 @@ grmon3> info sys
             Supports 3-wire mode
             Controller index for use in GRMON: 0
   gpio0     Cobham Gaisler  General Purpose I/O port
-            APB: 80000900 - 80000A00
+            APB: 80000900 - 80000a00
   gpio1     Cobham Gaisler  General Purpose I/O port
-            APB: 80000A00 - 80000B00
-  gpio2     Cobham Gaisler  General Purpose I/O port
-            APB: 80000B00 - 80000C00
+            APB: 80000b00 - 80000c00
   ahbstat0  Cobham Gaisler  AHB Status Register
-            APB: 80000F00 - 80001000
+            APB: 80000f00 - 80001000
             IRQ: 1
+
+grmon3>
   
 grmon3> spim flash detect
   Got manufacturer ID 0x20 and device ID 0x2017
