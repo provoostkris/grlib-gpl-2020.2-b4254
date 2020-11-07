@@ -20,9 +20,12 @@ Implementation:
 - A small amount of onchip SRAM is provided
 - GPIO_0 is mapped (in the assigment file) for input only
 - GPIO_1 is mapped (in the assigment file) for output only
-- KEY_0 is for RESET of the system
-- KEY_1 is for the DSU break control
-- SW(0) is for the DSU enable control
+- KEY(0) is for RESET of the system
+- KEY(1) is for the DSU break control
+- SW(0) (down) 
+- SW(1) (down) 
+- SW(2) (down) 
+- SW(3) (up) is for the DSU selection control
 - LEDs will inducate if the system is running
    
 
@@ -59,6 +62,10 @@ C:\Users\Kris\Downloads\grmon-eval-64-3.2.5\grmon-eval-3.2.5\windows\bin64>grmon
 
   This eval version will expire on 20/02/2021
 
+  UART initialization failure, retrying
+  UART initialization failure, retrying
+  UART initialization failure, retrying
+  UART initialization failure, retrying
   GRLIB build version: 4254
   Detected frequency:  50,0 MHz
 
@@ -84,7 +91,7 @@ grmon3> info sys
             AHB: 90000000 - a0000000
             AHB trace: 256 lines, 32-bit bus
             CPU0:  win 8, nwp 2, itrace 256, V8 mul/div, srmmu, lddel 1, GRFPU
-                   stack pointer 0x40000ff0I64x
+                   stack pointer 0x4001fff0I64x
                    icache 4 * 4 kB, 32 B/line, rnd
                    dcache 4 * 4 kB, 32 B/line, rnd
   ahbuart0  Cobham Gaisler  AHB Debug UART
@@ -95,7 +102,7 @@ grmon3> info sys
             AHB Master 4
   ahbram0   Cobham Gaisler  Single-port AHB SRAM module
             AHB: 40000000 - 40100000
-            32-bit SRAM: 4 kB @ 0x40000000
+            32-bit SRAM: 128 kB @ 0x40000000
   ahbrom0   Cobham Gaisler  Generic AHB ROM
             AHB: 00000000 - 00100000
             32-bit ROM: 1 MB @ 0x00000000
@@ -113,8 +120,4 @@ grmon3> info sys
             IRQ: 8
             16-bit scalar, 2 * 32-bit timers, divisor 50
 
-grmon3> exit
-
-Exiting GRMON
-
-C:\Users\Kris\Downloads\grmon-eval-64-3.2.5\grmon-eval-3.2.5\windows\bin64>
+grmon3>

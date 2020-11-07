@@ -115,7 +115,7 @@ package config is
   constant CFG_ROMMASK : integer := 16#E00# + 16#000#;
 -- AHB RAM
   constant CFG_AHBRAMEN : integer := 1;
-  constant CFG_AHBRSZ   : integer := 2**2;
+  constant CFG_AHBRSZ   : integer := 2**7;
   constant CFG_AHBRADDR : integer := 16#400#;
   constant CFG_AHBRPIPE : integer := 0;
 -- Gaisler Ethernet core
