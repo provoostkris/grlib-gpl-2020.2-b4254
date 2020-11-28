@@ -8,14 +8,14 @@ use techmap.gencomp.all;
 
 package config is
 -- Technology and synthesis options
-  constant CFG_FABTECH : integer := altera;
-  constant CFG_MEMTECH : integer := altera;
-  constant CFG_PADTECH : integer := altera;
+  constant CFG_FABTECH : integer := cyclone5;
+  constant CFG_MEMTECH : integer := cyclone5;
+  constant CFG_PADTECH : integer := cyclone5;
   constant CFG_TRANSTECH : integer := TT_XGTP0;
   constant CFG_NOASYNC : integer := 0;
   constant CFG_SCAN : integer := 0;
 -- Clock generator
-  constant CFG_CLKTECH : integer := altera;
+  constant CFG_CLKTECH : integer := cyclone5;
   constant CFG_CLKMUL : integer := 2;
   constant CFG_CLKDIV : integer := 2;
   constant CFG_OCLKDIV : integer := 1;
