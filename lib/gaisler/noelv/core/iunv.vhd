@@ -3692,10 +3692,42 @@ architecture rtl of iunv is
       -- Non-constant
       variable cfg : std_logic_vector(7 downto 0);
     begin
-      if n < 8 then
-        cfg := cfg0(n * 8 + 7 downto n * 8);
-      else
-        cfg := cfg2((n - 8) * 8 + 7 downto (n - 8) * 8);
+      if    n = 0 then
+        cfg := cfg0(0 * 8 + 7 downto 0 * 8);
+      elsif n = 1 then
+        cfg := cfg0(1 * 8 + 7 downto 1 * 8);
+      elsif n = 2 then
+        cfg := cfg0(2 * 8 + 7 downto 2 * 8);
+      elsif n = 3 then
+        cfg := cfg0(3 * 8 + 7 downto 3 * 8);
+      elsif n = 4 then
+        cfg := cfg0(4 * 8 + 7 downto 4 * 8);
+      elsif n = 5 then
+        cfg := cfg0(5 * 8 + 7 downto 5 * 8);
+      elsif n = 6 then
+        cfg := cfg0(6 * 8 + 7 downto 6 * 8);
+      elsif n = 7 then
+        cfg := cfg0(7 * 8 + 7 downto 7 * 8);
+      
+      elsif n = 8 then
+        cfg := cfg2(( 8 - 8) * 8 + 7 downto ( 8 - 8) * 8);
+      elsif n = 9 then
+        cfg := cfg2(( 9 - 8) * 8 + 7 downto ( 9 - 8) * 8);
+      elsif n = 10 then
+        cfg := cfg2((10 - 8) * 8 + 7 downto (10 - 8) * 8);
+      elsif n = 11 then
+        cfg := cfg2((11 - 8) * 8 + 7 downto (11 - 8) * 8);
+      elsif n = 12 then
+        cfg := cfg2((12 - 8) * 8 + 7 downto (12 - 8) * 8);
+      elsif n = 13 then
+        cfg := cfg2((13 - 8) * 8 + 7 downto (13 - 8) * 8);
+      elsif n = 14 then
+        cfg := cfg2((14 - 8) * 8 + 7 downto (14 - 8) * 8);
+      elsif n = 15 then
+        cfg := cfg2((15 - 8) * 8 + 7 downto (15 - 8) * 8);
+        
+      else 
+        assert false report " parameter out of range" severity error ;
       end if;
 
       return cfg;
