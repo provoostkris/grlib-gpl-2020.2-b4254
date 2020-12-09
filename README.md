@@ -15,9 +15,9 @@ The DE10 nano specifications can be found on the website
 https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&No=1046
 A common usb<>serial board is added to support the debug interface.
 
-##LEON3
+## LEON3
 Full tech support has been added for the cyclone 5 device. Design is based on the LEON3 minimal design.
-##LEON5
+## LEON5
 A reference design has been added for the cyclone 5 device. Design is based on the LEON5 - KC705 design
 
 Image - de10-nano setup :
@@ -28,7 +28,7 @@ The DE0 nano specifications can be found on the website
 https://www.terasic.com.tw/cgi-bin/page/archive.pl?Language=English&CategoryNo=139&No=593
 A common usb<>serial board is added to support the debug interface.
 
-##LEON3
+## LEON3
 The existing design was updated to use the serial debug link, such that more recent versions of the quartus tool can be used.
 
 Image - de0-nano setup :
