@@ -259,7 +259,7 @@ resetn_pad : inpad
       dbgmo    => dbgmo,
       apbi     => apbi,
       apbo     => apbo,
-      dsuen    => '1',
+      dsuen    => dsuen,
       dsubreak => dsubreak,
       cpu0errn => cpu0errn,
       uarti    => u1i,
@@ -273,6 +273,7 @@ resetn_pad : inpad
     ahbso(0) <= ahbs_none;
   end generate;
 
+  dsuen <= '1';
   led1_pad          : outpad generic map (tech => padtech)    port map (led(1), cpu0errn);
   dsui_break_pad    : inpad  generic map (tech => padtech)    port map (KEY(1), dsubreak);
   dsuact_pad        : outpad generic map (tech => padtech)    port map (led(0), dsuen);
