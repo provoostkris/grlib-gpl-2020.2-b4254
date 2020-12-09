@@ -199,15 +199,18 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 
 
-set_global_assignment -name SDC_FILE "../../boards/terasic-de10-nano/leon3mp.sdc"
+set_global_assignment -name SDC_FILE "../../boards/terasic-de10-nano/noelvmp.sdc"
 
 
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+
+
 set_global_assignment -name VHDL_FILE ../../lib/gaisler/usb/grusb.vhd
 set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/version.vhd -library grlib
 set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/config_types.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/config.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/config.vhd -library grlib
+set_global_assignment -name VHDL_FILE noelv_config.vhd -library grlib
 set_global_assignment -name VHDL_FILE ../../lib/grlib/stdlib/stdlib.vhd -library grlib
 set_global_assignment -name VHDL_FILE ../../lib/grlib/sparc/sparc.vhd -library grlib
 set_global_assignment -name VHDL_FILE ../../lib/grlib/riscv/riscv.vhd -library grlib
@@ -227,17 +230,17 @@ set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/ahbmst.vhd -library g
 set_global_assignment -name VHDL_FILE ../../lib/grlib/amba/ahblitm2ahbm.vhd -library grlib
 set_global_assignment -name VHDL_FILE ../../lib/grlib/dftlib/dftlib.vhd -library grlib
 set_global_assignment -name VHDL_FILE ../../lib/grlib/dftlib/synciotest.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_pkg.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/ahb_be.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/axi4_be.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bmahbmst.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_fre.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_me_rc.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_me_wc.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/fifo_control_rc.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/fifo_control_wc.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_ahb.vhd -library grlib
-set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_axi.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_pkg.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/ahb_be.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/axi4_be.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bmahbmst.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_fre.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_me_rc.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/bm_me_wc.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/fifo_control_rc.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/fifo_control_wc.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_ahb.vhd -library grlib
+#set_global_assignment -name VHDL_FILE ../../lib/grlib/generic_bm/generic_bm_axi.vhd -library grlib
 set_global_assignment -name VHDL_FILE ../../lib/techmap/gencomp/gencomp.vhd -library techmap
 set_global_assignment -name VHDL_FILE ../../lib/techmap/gencomp/netcomp.vhd -library techmap
 set_global_assignment -name VHDL_FILE ../../lib/techmap/inferred/memory_inferred.vhd -library techmap
@@ -472,7 +475,6 @@ set_global_assignment -name VHDL_FILE ../../lib/gaisler/plic/grplic_ahb.vhd -lib
 set_global_assignment -name VHDL_FILE ../../lib/gaisler/noelv/subsys/noelvsys.vhd -library gaisler
 set_global_assignment -name VHDL_FILE ../../lib/esa/memoryctrl/memoryctrl.vhd -library esa
 set_global_assignment -name VHDL_FILE ../../lib/esa/memoryctrl/mctrl.vhd -library esa
-set_global_assignment -name VHDL_FILE ddr_dummy.vhd
 set_global_assignment -name VHDL_FILE config.vhd
 set_global_assignment -name VHDL_FILE ahbrom.vhd
 set_global_assignment -name VHDL_FILE noelvmp.vhd
