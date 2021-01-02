@@ -66,8 +66,7 @@ entity noelvmp is
       clktech                 : integer := CFG_CLKTECH;
       disas                   : integer := CFG_DISAS;   -- Enable disassembly to console
       dbguart                 : integer := CFG_DUART;   -- Print UART on console
-      pclow                   : integer := CFG_PCLOW;
-      USE_MIG_INTERFACE_MODEL : boolean := true
+      pclow                   : integer := CFG_PCLOW
       -- autonegotiation         : integer := 1;
       -- riscv_mmu               : integer := 2;
       -- pmp_no_tor              : integer :=  0;  -- Disable PMP TOR
@@ -94,7 +93,7 @@ end;
 
 architecture rtl of noelvmp is
 
-constant ncpu     : integer := 1;
+constant ncpu     : integer := CFG_NCPU;
 constant nextslv  : integer := 3
 -- pragma translate_off
                                + 1
@@ -129,9 +128,6 @@ signal ahbmi : ahb_mst_in_type;
 signal ahbmo : ahb_mst_out_vector := (others => ahbm_none);
 signal mig_ahbsi : ahb_slv_in_type;                            
 signal mig_ahbso : ahb_slv_out_type;
-  
-signal aximi : axi_somi_type;
-signal aximo : axi4_mosi_type;
 
 signal clkm : std_ulogic := '0';
 signal rstn, rstraw : std_ulogic;
@@ -163,14 +159,6 @@ signal ldsubreak  : std_logic;
 signal lcpu0errn  : std_logic;
 signal dbgmi      : ahb_mst_in_vector_type(ndbgmst-1 downto 0);
 signal dbgmo      : ahb_mst_out_vector_type(ndbgmst-1 downto 0);
-
--- NOELV
-signal ext_irqi       : std_logic_vector(15 downto 0);
-signal cpurstn        : std_ulogic;
-
--- Memory
-signal mem_aximi      : axi_somi_type;
-signal mem_aximo      : axi_mosi_type;
 
 constant mig_hindex : integer := 2
 -- pragma translate_off
@@ -274,8 +262,8 @@ gen_soc: if CFG_SOC = 1 generate
       ahbtrace  => 0,
       cfg       => 1,
       devid     => 0,
-      version   => 0,
-      revision  => 7,
+      version   => 1,
+      revision  => 0,
       nodbus    => CFG_NODBGBUS
       )
     port map(
@@ -404,6 +392,10 @@ gen_soc: if CFG_SOC = 1 generate
     end generate;
     
   end generate;
+  
+  no_gpio0 : if CFG_GRGPIO_ENABLE = 0 generate
+    apbo(3)    <= apb_none;
+  end generate;
 
 ----------------------------------------------------------------------
   --  AHB Status Register
@@ -417,37 +409,53 @@ gen_soc: if CFG_SOC = 1 generate
                   nftslv  => CFG_AHBSTATN)
       port map(rstn,clkm,ahbmi,ahbsi,stati,apbi(2),apbo(2));
   end generate;
+    
+  no_ahbs : if CFG_AHBSTAT = 0 generate  
+    apbo(2)    <= apb_none;
+  end generate;
 
-  -----------------------------------------------------------------------
-  ---  AHB RAM ----------------------------------------------------------
-  -----------------------------------------------------------------------
-    ahbram1 : ahbram 
+-----------------------------------------------------------------------
+---  AHB RAM ----------------------------------------------------------
+-----------------------------------------------------------------------
+
+  ahbram : if CFG_AHBRAMEN = 1 generate 
+  ahbram1 : ahbram 
       generic map (
         hindex      => 0,
         haddr       => 16#400#,
         tech        => CFG_MEMTECH,
-        kbytes      => 64,
+        kbytes      => CFG_AHBRSZ,
         endianness  => GRLIB_CONFIG_ARRAY(grlib_little_endian))
       port map (
         rstn,
         clkm,
         ahbsi,
         ahbso(0));
+  end generate;
+  
+  no_ahbram : if CFG_AHBRAMEN = 0 generate  
+    ahbso(0)    <= ahbs_none;
+  end generate;
       
-  -----------------------------------------------------------------------
-  ---  AHB ROM ----------------------------------------------------------
-  -----------------------------------------------------------------------
+-----------------------------------------------------------------------
+---  AHB ROM ----------------------------------------------------------
+-----------------------------------------------------------------------
+  ahbrom : if CFG_AHBROMEN = 1 generate  
   brom : entity work.ahbrom
     generic map (
       hindex  => 1,
-      haddr   => 16#000#,
-      pipe    => 0)
+      haddr   => CFG_ROMADDR,
+      pipe    => CFG_AHBROPIP)
     port map (
       rst     => rstn,
       clk     => clkm,
       ahbsi   => ahbsi,
       ahbso   => ahbso(1));
+  end generate;
 
+  no_ahbrom : if CFG_AHBROMEN = 0 generate  
+    ahbso(1)    <= ahbs_none;
+  end generate;
   -----------------------------------------------------------------------
   ---  Fake MIG PNP -----------------------------------------------------
   -----------------------------------------------------------------------
