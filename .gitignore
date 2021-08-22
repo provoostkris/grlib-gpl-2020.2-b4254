@@ -1,0 +1,9 @@
+
+*.h
+*.in
+*.srec
+*.tk
+*.help
+designs/leon3-terasic-de10-nano/c5_pin_model_dump.txt
+designs/noelv-terasic-de10-nano/c5_pin_model_dump.txt
+designs/leon5-terasic-de10-nano/c5_pin_model_dump.txt
