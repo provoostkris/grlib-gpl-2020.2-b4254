@@ -17,10 +17,13 @@ A common usb<>serial board is added to support the debug interface.
 
 ## LEON3
 Full tech support has been added for the cyclone 5 device. Design is based on the LEON3 minimal design.
+[Overview](/designs/leon3-terasic-de10-nano)
 ## LEON5
 Full tech support has been added for the cyclone 5 device. Design is based on the LEON5 - KC705 design
+[Overview](/designs/leon5-terasic-de10-nano)
 ## NOELV
 Full tech support has been added for the cyclone 5 device. Some libraries are modiefied to support quartus tools. Design is based on the LEON5 - VC707 design
+[Overview](/designs/noelv-terasic-de10-nano)
 
 Image - de10-nano setup :
 ![DE-10](de10-nano.jpg)
@@ -32,6 +35,7 @@ A common usb<>serial board is added to support the debug interface.
 
 ## LEON3
 The existing design was updated to use the serial debug link, such that more recent versions of the quartus tool can be used.
+[Overview](/designs/leon3-terasic-de0-nano)
 ## LEON5
 TBD - the cpu is likely to large to fit the FPGA 
 ## NOELV
